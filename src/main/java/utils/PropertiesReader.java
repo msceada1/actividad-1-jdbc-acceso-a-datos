@@ -1,6 +1,6 @@
 package utils;
 
-import Exceptions.PropertiesReaderException;
+import exceptions.PropertiesReaderException;
 
 import java.io.BufferedReader;
 import java.io.IOException;
