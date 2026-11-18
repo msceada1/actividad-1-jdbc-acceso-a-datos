@@ -15,11 +15,10 @@ public class ConexionDB {
      */
     public static Connection getConnection() throws Exception {
         PropertiesReader p = PropertiesReader.getInstance();
-        String url = "jdbc:mysql://localhost:3306/tienda_vehiculos?serverTimezone=UTC";
 
         // Si la conexión no existe o está cerrada, creamos una nueva
         if (conexion == null || conexion.isClosed()) {
-            conexion = DriverManager.getConnection(url, p.get("usuario"), p.get("password"));
+            conexion = DriverManager.getConnection(p.get("urlDB"), p.get("usuario"), p.get("password"));
         }
         return conexion;
     }
