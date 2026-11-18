@@ -9,11 +9,27 @@ public class Coche {
     private String matricula;
     private String marca;
     private String modelo;
+    private Propietario propietario;
 
     public Coche(String matricula, String marca, String modelo) throws CocheException {
         setMatricula(matricula);
         setMarca(marca);
         setModelo(modelo);
+    }
+
+    public Coche(String matricula, String marca, String modelo, Propietario propietario) throws CocheException {
+        setMatricula(matricula);
+        setMarca(marca);
+        setModelo(modelo);
+        setPropietario(propietario);
+    }
+
+    public Propietario getPropietario() {
+        return propietario;
+    }
+
+    public void setPropietario(Propietario propietario) {
+        this.propietario = propietario;
     }
 
     public String getMatricula() {
@@ -56,6 +72,7 @@ public class Coche {
 
     /**
      * metodo encargado de verificar que la matricula siga el patron correspondiente
+     *
      * @param matricula la matricula del coche
      * @return true si cumple el patron, false en caso contrario
      */
@@ -69,12 +86,12 @@ public class Coche {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Coche coche = (Coche) o;
-        return Objects.equals(matricula, coche.matricula);
+        return Objects.equals(matricula, coche.matricula) && Objects.equals(propietario, coche.propietario);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(matricula);
+        return Objects.hash(matricula, propietario);
     }
 
     @Override
