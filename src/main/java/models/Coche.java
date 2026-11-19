@@ -1,8 +1,11 @@
-package model;
+package models;
 
 import exceptions.CocheException;
+import exceptions.MatriculaException;
 
 import java.util.Objects;
+
+import static utils.MiEntradaSalida.cumplePatronMatricula;
 
 public class Coche {
 
@@ -11,13 +14,13 @@ public class Coche {
     private String modelo;
     private Propietario propietario;
 
-    public Coche(String matricula, String marca, String modelo) throws CocheException {
+    public Coche(String matricula, String marca, String modelo) throws CocheException, MatriculaException {
         setMatricula(matricula);
         setMarca(marca);
         setModelo(modelo);
     }
 
-    public Coche(String matricula, String marca, String modelo, Propietario propietario) throws CocheException {
+    public Coche(String matricula, String marca, String modelo, Propietario propietario) throws CocheException, MatriculaException {
         setMatricula(matricula);
         setMarca(marca);
         setModelo(modelo);
@@ -36,14 +39,11 @@ public class Coche {
         return matricula;
     }
 
-    public void setMatricula(String matricula) throws CocheException {
+    public void setMatricula(String matricula) throws CocheException, MatriculaException {
         if (matricula == null || matricula.isBlank()) {
             throw new CocheException("Error: se debe indicar la matricula del coche");
         }
-
-        if (!cumplePatronMatricula(matricula.trim().toUpperCase())) {
-            throw new CocheException("Error: La matricula no pasa el patron");
-        }
+        cumplePatronMatricula(matricula);
 
         this.matricula = matricula.trim().toUpperCase();
     }
@@ -68,18 +68,6 @@ public class Coche {
             throw new CocheException("Error: se debe indicar el modelo del coche");
         }
         this.modelo = modelo.trim();
-    }
-
-    /**
-     * metodo encargado de verificar que la matricula siga el patron correspondiente
-     *
-     * @param matricula la matricula del coche
-     * @return true si cumple el patron, false en caso contrario
-     */
-    private boolean cumplePatronMatricula(String matricula) {
-        String regex = "\\d{4}[B-DF-HJ-NP-TV-Z]{3}";
-
-        return matricula.matches(regex);
     }
 
     @Override
