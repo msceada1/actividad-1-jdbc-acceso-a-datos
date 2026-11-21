@@ -283,16 +283,4 @@ public class MiEntradaSalida {
         return numero;
     }
 
-    /**
-     * metodo encargado de validar el patron de una matricula
-     * @param matricula la matricula a validar
-     * @throws MatriculaException si la matricula no pasa el patron
-     */
-    public static void cumplePatronMatricula(String matricula) throws MatriculaException {
-        String patronMatricula = "\\d{4}[B-DF-HJ-NP-TV-Z]{3}";
-
-        if (!matricula.trim().toUpperCase().matches(patronMatricula)) {
-            throw new MatriculaException("Error: La matricula no cumple con el patron correspondiente");
-        }
-    }
 }

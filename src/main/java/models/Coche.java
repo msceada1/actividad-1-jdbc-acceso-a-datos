@@ -5,81 +5,72 @@ import exceptions.MatriculaException;
 
 import java.util.Objects;
 
-import static utils.MiEntradaSalida.cumplePatronMatricula;
-
 public class Coche {
 
     private String matricula;
     private String marca;
     private String modelo;
-    private Propietario propietario;
+    private Extra extras;
+    private double precio;
 
-    public Coche(String matricula, String marca, String modelo) throws CocheException, MatriculaException {
-        setMatricula(matricula);
-        setMarca(marca);
-        setModelo(modelo);
-    }
-
-    public Coche(String matricula, String marca, String modelo, Propietario propietario) throws CocheException, MatriculaException {
-        setMatricula(matricula);
-        setMarca(marca);
-        setModelo(modelo);
-        setPropietario(propietario);
-    }
-
-    public Propietario getPropietario() {
-        return propietario;
-    }
-
-    public void setPropietario(Propietario propietario) {
-        this.propietario = propietario;
+    public Coche(String matricula, String marca, String modelo, Extra extras, double precio) {
+        this.matricula = matricula;
+        this.marca = marca;
+        this.modelo = modelo;
+        this.extras = extras;
+        this.precio = precio;
     }
 
     public String getMatricula() {
         return matricula;
     }
 
-    public void setMatricula(String matricula) throws CocheException, MatriculaException {
-        if (matricula == null || matricula.isBlank()) {
-            throw new CocheException("Error: se debe indicar la matricula del coche");
-        }
-        cumplePatronMatricula(matricula);
-
-        this.matricula = matricula.trim().toUpperCase();
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
     }
 
     public String getMarca() {
         return marca;
     }
 
-    public void setMarca(String marca) throws CocheException {
-        if (marca == null || marca.isBlank()) {
-            throw new CocheException("Error: se debe indicar la marca del coche");
-        }
-        this.marca = marca.trim();
+    public void setMarca(String marca) {
+        this.marca = marca;
     }
 
     public String getModelo() {
         return modelo;
     }
 
-    public void setModelo(String modelo) throws CocheException {
-        if (modelo == null || modelo.isBlank()) {
-            throw new CocheException("Error: se debe indicar el modelo del coche");
-        }
-        this.modelo = modelo.trim();
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
+
+    public Extra getExtras() {
+        return extras;
+    }
+
+    public void setExtras(Extra extras) {
+        this.extras = extras;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
     }
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Coche coche = (Coche) o;
-        return Objects.equals(matricula, coche.matricula) && Objects.equals(propietario, coche.propietario);
+        return Objects.equals(matricula, coche.matricula);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(matricula, propietario);
+        return Objects.hashCode(matricula);
     }
 
     @Override
@@ -88,6 +79,8 @@ public class Coche {
                 "matricula='" + matricula + '\'' +
                 ", marca='" + marca + '\'' +
                 ", modelo='" + modelo + '\'' +
+                ", extras=" + extras +
+                ", precio=" + precio +
                 '}';
     }
 }
