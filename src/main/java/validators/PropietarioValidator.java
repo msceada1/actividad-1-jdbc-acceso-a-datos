@@ -8,8 +8,8 @@ public class PropietarioValidator {
 
     /**
      * metodo encargado de verificar que un dni
-     * @param dni
-     * @throws DNIException
+     * @param dni el dni a verificar
+     * @throws DNIException si es nulo, vacio o no cumple el patron
      */
     public void validarDNI(String dni) throws DNIException {
         String patronDNI = "^[0-9]{8}[A-Z]$";
@@ -19,6 +19,12 @@ public class PropietarioValidator {
         }
     }
 
+    /**
+     * metodo encargado de validar un propietario en base a unos requisitos
+     * @param p el propietario a analizar
+     * @throws DNIException si el dni no cumple el formato
+     * @throws PropietarioException si el nombre o apellido son nulos o vacios
+     */
     public void validarPropietario(Propietario p) throws DNIException, PropietarioException {
         validarDNI(p.getDni());
 
