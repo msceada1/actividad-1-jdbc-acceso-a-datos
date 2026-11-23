@@ -14,15 +14,12 @@ public class TraspasoValidator {
      * metodo encargado de validar los requisitos de un traspaso
      * @param t el traspaso a validar
      * @throws MatriculaException si el traspaso no tiene matricula o no sigue el patron
-     * @throws DNIException si el trapaso no tiene dni o no sigue el patron
      * @throws TraspasoException si el monto economico es menor igual a 0
      */
-    public void validarTraspaso(Traspaso t) throws MatriculaException, DNIException, TraspasoException {
-        PropietarioValidator p = new PropietarioValidator();
+    public void validarTraspaso(Traspaso t) throws MatriculaException, TraspasoException {
         CocheValidator c = new CocheValidator();
 
-        //reciclo los metodos para validar el dni y la matricula en el traspaso
-        p.validarDNI(t.getDniComprador());
+        //reciclo el metodo para validar la matricula en el traspaso
         c.validarMatricula(t.getMatriculaCoche());
 
         if (t.getMontoEconomico() < MIN_MONTO_ECONOMICO) {

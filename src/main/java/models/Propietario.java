@@ -65,17 +65,6 @@ public class Propietario {
         this.apellido = apellido;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        Propietario that = (Propietario) o;
-        return Objects.equals(dni, that.dni);
-    }
-
-    @Override
-    public int hashCode() {
-        return id;
-    }
 
     @Override
     public String toString() {
@@ -84,6 +73,7 @@ public class Propietario {
                 ", dni='" + dni + '\'' +
                 ", nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
+                ", telefono='" + telefono + '\'' +
                 '}';
     }
 }

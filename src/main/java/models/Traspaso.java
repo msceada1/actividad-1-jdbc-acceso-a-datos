@@ -6,19 +6,22 @@ public class Traspaso {
 
     private int idTraspaso;
     private String matriculaCoche;
-    private String dniComprador;
+    private int idVendedor;
+    private int idComprador;
     private double montoEconomico;
 
-    public Traspaso(String matriculaCoche, String dniComprador, double montoEconomico) {
+    public Traspaso(String matriculaCoche, int idVendedor, int idComprador, double montoEconomico) {
         this.matriculaCoche = matriculaCoche;
-        this.dniComprador = dniComprador;
+        this.idVendedor = idVendedor;
+        this.idComprador = idComprador;
         this.montoEconomico = montoEconomico;
     }
 
-    public Traspaso(int idTraspaso, String matriculaCoche, String dniComprador, double montoEconomico) {
+    public Traspaso(int idTraspaso, String matriculaCoche, int idVendedor, int idComprador, double montoEconomico) {
         this.idTraspaso = idTraspaso;
         this.matriculaCoche = matriculaCoche;
-        this.dniComprador = dniComprador;
+        this.idComprador = idComprador;
+        this.idVendedor = idVendedor;
         this.montoEconomico = montoEconomico;
     }
 
@@ -38,12 +41,20 @@ public class Traspaso {
         this.matriculaCoche = matriculaCoche;
     }
 
-    public String getDniComprador() {
-        return dniComprador;
+    public int getIdVendedor() {
+        return idVendedor;
     }
 
-    public void setDniComprador(String dniComprador) {
-        this.dniComprador = dniComprador;
+    public void setIdVendedor(int idVendedor) {
+        this.idVendedor = idVendedor;
+    }
+
+    public int getIdComprador() {
+        return idComprador;
+    }
+
+    public void setIdComprador(int idComprador) {
+        this.idComprador = idComprador;
     }
 
     public double getMontoEconomico() {
@@ -71,7 +82,8 @@ public class Traspaso {
         return "Traspaso{" +
                 "idTraspaso=" + idTraspaso +
                 ", matriculaCoche='" + matriculaCoche + '\'' +
-                ", dniComprador='" + dniComprador + '\'' +
+                ", idVendedor=" + idVendedor +
+                ", idComprador=" + idComprador +
                 ", montoEconomico=" + montoEconomico +
                 '}';
     }
