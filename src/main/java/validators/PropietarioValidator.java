@@ -2,6 +2,7 @@ package validators;
 
 import exceptions.DNIException;
 import exceptions.PropietarioException;
+import exceptions.TelefonoException;
 import models.Propietario;
 
 public class PropietarioValidator {
@@ -16,6 +17,19 @@ public class PropietarioValidator {
 
         if (dni == null || dni.isBlank() || !(dni.trim().toUpperCase().matches(patronDNI))) {
             throw new DNIException("Error: no se ha introducido DNI o no se ha resptado el patron");
+        }
+    }
+
+    /**
+     * metodo encargado de validar el telefono
+     * @param numTelfn el numero de telefono a evaluar
+     * @throws TelefonoException si es nulo, vacio o no respeta el patron
+     */
+    public void validarTelefono(String numTelfn) throws TelefonoException {
+        String patronTlfn = "^[0-9]{9}$";
+
+        if (numTelfn == null || numTelfn.isBlank() || !(numTelfn.matches(patronTlfn))) {
+            throw new TelefonoException("Error: no se ha introducido el numero de telefono o no se ha resptado el patron");
         }
     }
 

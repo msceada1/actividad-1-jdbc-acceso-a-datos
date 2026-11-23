@@ -13,7 +13,7 @@ public class CocheValidator {
      *
      */
     public void validarMatricula(String matricula) throws MatriculaException {
-        String patronMatricula = "\\d{4}[B-DF-HJ-NP-TV-Z]{3}";
+        String patronMatricula = "^\\\\d{4}[a-zA-Z]{3}$";
 
         if (matricula == null || matricula.isBlank() || !(matricula.trim().toUpperCase().matches(patronMatricula))) {
             throw new MatriculaException("Error: no se ha introducido matricula o no se ha seguido el patron");

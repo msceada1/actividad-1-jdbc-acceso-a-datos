@@ -4,14 +4,41 @@ import java.util.Objects;
 
 public class Propietario {
 
+    private int id;
     private String dni;
     private String nombre;
     private String apellido;
+    private String telefono;
 
-    public Propietario(String dni, String nombre, String apellido) {
+    public Propietario(String dni, String nombre, String apellido, String telefono) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
+        this.telefono = telefono;
+    }
+
+    public Propietario(int id, String dni, String nombre, String apellido, String telefono) {
+        this.id = id;
+        this.dni = dni;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.telefono = telefono;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getDni() {
@@ -47,13 +74,14 @@ public class Propietario {
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(dni);
+        return id;
     }
 
     @Override
     public String toString() {
         return "Propietario{" +
-                "dni='" + dni + '\'' +
+                "id=" + id +
+                ", dni='" + dni + '\'' +
                 ", nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
                 '}';

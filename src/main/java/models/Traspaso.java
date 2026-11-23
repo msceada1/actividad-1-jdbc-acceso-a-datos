@@ -9,6 +9,19 @@ public class Traspaso {
     private String dniComprador;
     private double montoEconomico;
 
+    public Traspaso(String matriculaCoche, String dniComprador, double montoEconomico) {
+        this.matriculaCoche = matriculaCoche;
+        this.dniComprador = dniComprador;
+        this.montoEconomico = montoEconomico;
+    }
+
+    public Traspaso(int idTraspaso, String matriculaCoche, String dniComprador, double montoEconomico) {
+        this.idTraspaso = idTraspaso;
+        this.matriculaCoche = matriculaCoche;
+        this.dniComprador = dniComprador;
+        this.montoEconomico = montoEconomico;
+    }
+
     public int getIdTraspaso() {
         return idTraspaso;
     }
