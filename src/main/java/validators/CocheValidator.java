@@ -6,6 +6,9 @@ import models.Coche;
 
 public class CocheValidator {
 
+    private static final String PATRON_MATRICULA = "^\\d{4}[A-Z]{3}$";
+    private static final int MIN_PRECIO_COCHE = 1;
+
     /**
      * metodo encargado de validar el patron de una matricula
      *
@@ -13,10 +16,8 @@ public class CocheValidator {
      *
      */
     public void validarMatricula(String matricula) throws MatriculaException {
-        String patronMatricula = "^\\\\d{4}[a-zA-Z]{3}$";
-
-        if (matricula == null || matricula.isBlank() || !(matricula.trim().toUpperCase().matches(patronMatricula))) {
-            throw new MatriculaException("Error: no se ha introducido matricula o no se ha seguido el patron");
+        if (matricula == null || matricula.isBlank() || !matricula.trim().toUpperCase().matches(PATRON_MATRICULA)) {
+            throw new MatriculaException("Error: no se ha introducido matrícula o no se ha seguido el patrón");
         }
     }
 
@@ -40,6 +41,10 @@ public class CocheValidator {
 
         if (c.getModelo() == null || c.getModelo().isBlank()) {
             throw new CocheException("Error: el coche debe tener modelo");
+        }
+
+        if (c.getPrecio() < MIN_PRECIO_COCHE) {
+            throw new CocheException("Error: el precio del coche debe ser mayor que cero");
         }
     }
 }

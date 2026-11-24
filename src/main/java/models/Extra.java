@@ -8,7 +8,7 @@ public class Extra {
     private List<String> extras = new ArrayList<>();
 
     public Extra(List<String> extras) {
-        setExtras(extras);
+        this.extras = extras;
     }
 
     public List<String> getExtras() {

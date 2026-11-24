@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Propietario {
 
-    private int id;
+    private Integer id;
     private String dni;
     private String nombre;
     private String apellido;
@@ -15,9 +15,10 @@ public class Propietario {
         this.nombre = nombre;
         this.apellido = apellido;
         this.telefono = telefono;
+        this.id = null;
     }
 
-    public Propietario(int id, String dni, String nombre, String apellido, String telefono) {
+    public Propietario(Integer id, String dni, String nombre, String apellido, String telefono) {
         this.id = id;
         this.dni = dni;
         this.nombre = nombre;
@@ -33,11 +34,11 @@ public class Propietario {
         this.telefono = telefono;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -65,6 +66,17 @@ public class Propietario {
         this.apellido = apellido;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Propietario that = (Propietario) o;
+        return Objects.equals(dni, that.dni);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(dni);
+    }
 
     @Override
     public String toString() {

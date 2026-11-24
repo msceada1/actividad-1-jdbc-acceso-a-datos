@@ -10,9 +10,9 @@ public class Coche {
     private String modelo;
     private Extra extras;
     private double precio;
-    private int idPropietario;
+    private Integer idPropietario;
 
-    public Coche(String matricula, String marca, String modelo, Extra extras, double precio, int idPropietario) {
+    public Coche(String matricula, String marca, String modelo, Extra extras, double precio, Integer idPropietario) {
         this.matricula = matricula;
         this.marca = marca;
         this.modelo = modelo;
@@ -27,7 +27,7 @@ public class Coche {
         this.modelo = modelo;
         this.extras = extras;
         this.precio = precio;
-        this.idPropietario = Integer.parseInt(null);
+        this.idPropietario = null;
     }
 
     public String getMatricula() {
@@ -70,11 +70,11 @@ public class Coche {
         this.precio = precio;
     }
 
-    public int getIdPropietario() {
+    public Integer getIdPropietario() {
         return idPropietario;
     }
 
-    public void setIdPropietario(int idPropietario) {
+    public void setIdPropietario(Integer idPropietario) {
         this.idPropietario = idPropietario;
     }
 

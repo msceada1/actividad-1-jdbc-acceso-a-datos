@@ -4,32 +4,33 @@ import java.util.Objects;
 
 public class Traspaso {
 
-    private int idTraspaso;
+    private Integer idTraspaso;
     private String matriculaCoche;
-    private int idVendedor;
-    private int idComprador;
+    private Integer idVendedor;
+    private Integer idComprador;
     private double montoEconomico;
 
-    public Traspaso(String matriculaCoche, int idVendedor, int idComprador, double montoEconomico) {
+    public Traspaso(String matriculaCoche, Integer idVendedor, Integer idComprador, double montoEconomico) {
+        this.idTraspaso = null;
         this.matriculaCoche = matriculaCoche;
         this.idVendedor = idVendedor;
         this.idComprador = idComprador;
         this.montoEconomico = montoEconomico;
     }
 
-    public Traspaso(int idTraspaso, String matriculaCoche, int idVendedor, int idComprador, double montoEconomico) {
+    public Traspaso(Integer idTraspaso, String matriculaCoche, Integer idVendedor, Integer idComprador, double montoEconomico) {
         this.idTraspaso = idTraspaso;
         this.matriculaCoche = matriculaCoche;
-        this.idComprador = idComprador;
         this.idVendedor = idVendedor;
+        this.idComprador = idComprador;
         this.montoEconomico = montoEconomico;
     }
 
-    public int getIdTraspaso() {
+    public Integer getIdTraspaso() {
         return idTraspaso;
     }
 
-    public void setIdTraspaso(int idTraspaso) {
+    public void setIdTraspaso(Integer idTraspaso) {
         this.idTraspaso = idTraspaso;
     }
 
@@ -41,19 +42,19 @@ public class Traspaso {
         this.matriculaCoche = matriculaCoche;
     }
 
-    public int getIdVendedor() {
+    public Integer getIdVendedor() {
         return idVendedor;
     }
 
-    public void setIdVendedor(int idVendedor) {
+    public void setIdVendedor(Integer idVendedor) {
         this.idVendedor = idVendedor;
     }
 
-    public int getIdComprador() {
+    public Integer getIdComprador() {
         return idComprador;
     }
 
-    public void setIdComprador(int idComprador) {
+    public void setIdComprador(Integer idComprador) {
         this.idComprador = idComprador;
     }
 
@@ -69,7 +70,7 @@ public class Traspaso {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Traspaso traspaso = (Traspaso) o;
-        return idTraspaso == traspaso.idTraspaso;
+        return Objects.equals(idTraspaso, traspaso.idTraspaso);
     }
 
     @Override
