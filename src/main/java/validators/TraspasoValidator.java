@@ -18,24 +18,24 @@ public class TraspasoValidator {
      * @throws TraspasoException si el monto economico es menor igual a 0
      */
     public void validarTraspaso(Traspaso t) throws MatriculaException, TraspasoException {
-        if(t == null) {
-            throw new TraspasoException("error: el traspaso no existe");
+        if (t == null) {
+            throw new TraspasoException("Error: el traspaso no existe");
         }
-        CocheValidator c = new CocheValidator();
 
-        //reciclo el metodo para validar la matricula en el traspaso
+        CocheValidator c = new CocheValidator();
         c.validarMatricula(t.getMatriculaCoche());
 
         if (t.getIdComprador() == null || t.getIdComprador() < MIN_NUM_ID) {
             throw new TraspasoException("Error: el comprador debe tener un id válido");
         }
 
-        if (t.getIdVendedor() != null && t.getIdVendedor() < MIN_NUM_ID) {
-            throw new TraspasoException("error: el comprador debe tener un id valido");
-        }
-
-        if (t.getIdVendedor().equals(t.getIdComprador())) {
-            throw new TraspasoException("error: el comprador y el vendedor no pueden tener el mismo id");
+        if (t.getIdVendedor() != null) {
+            if (t.getIdVendedor() < MIN_NUM_ID) {
+                throw new TraspasoException("Error: el vendedor debe tener un id válido");
+            }
+            if (t.getIdVendedor().equals(t.getIdComprador())) {
+                throw new TraspasoException("Error: el comprador y el vendedor no pueden tener el mismo id");
+            }
         }
 
         if (t.getMontoEconomico() < MIN_MONTO_ECONOMICO) {
