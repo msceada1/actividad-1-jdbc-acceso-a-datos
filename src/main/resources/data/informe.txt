@@ -1,0 +1,11 @@
+=== INFORME DEL CONCESIONARIO ===
+Total de coches: 2
+
+--- Coches agrupados por marca ---
+Marca: mercedes
+  - 3456JKL | benz | 60000.0 € | Extras: navaja|tetera
+Marca: peugeot
+  - 1234ABC | 305 | 9000.0 € | Extras: Sin extras
+
+--- Extra más repetido ---
+navaja (1 veces)
