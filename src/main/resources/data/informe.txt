@@ -1,11 +1,13 @@
 === INFORME DEL CONCESIONARIO ===
-Total de coches: 2
+Total de coches: 3
 
 --- Coches agrupados por marca ---
-Marca: mercedes
-  - 3456JKL | benz | 60000.0 € | Extras: navaja|tetera
-Marca: peugeot
-  - 1234ABC | 305 | 9000.0 € | Extras: Sin extras
+Marca: Peugeot
+  - 7890MNP | 208 | 19999.99 € | Extras: Sin extras
+Marca: Seat
+  - 3456JKL | Ibiza | 17999.99 € | Extras: Climatizador|Sensor de aparcamiento
+Marca: Toyota
+  - 1122QRS | Yaris | 21999.99 € | Extras: Llantas de aleación|Techo solar|Cámara trasera
 
 --- Extra más repetido ---
-navaja (1 veces)
+Llantas de aleación (1 veces)

@@ -64,8 +64,6 @@ public class Principal {
      * @param opcion número entero de la opción del menú.
      */
     public static void ejecutarOpcion(int opcion) {
-        boolean enFuncionamiento = true;
-        while (enFuncionamiento) {
             try {
                 switch (opcion) {
                     case 1:
@@ -110,7 +108,6 @@ public class Principal {
                     case 13:
                         service.cerrarConexion();
                         System.out.println("Conexión cerrada. ¡Hasta pronto!");
-                        enFuncionamiento = false;
                         break;
                     default:
                         System.out.println("Opción no válida. Introduce un número entre 1 y 13.");
@@ -123,13 +120,12 @@ public class Principal {
             } catch (SQLException e) {
                 System.out.println("Error de base de datos: " + e.getMessage());
             }
-        }
+
 
 
     }
 
     private static void conectarBBDD() throws DBException, SQLException, PropertiesReaderException {
-        System.out.println("Elige motor de base de datos:");
         System.out.println("1. MySQL");
         System.out.println("2. SQLite");
         int eleccion = MiEntradaSalida.leerEnteroEnRango("elige el modelo de bases de datos", 1, 2);
